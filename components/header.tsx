@@ -9,14 +9,20 @@ export default function Header() {
   const [domain, setDomain] = useState('')
 
   return (
-    <div className='bg-gray-50 p-4'>
+    <div className='p-4'>
       <div className='max-w-3xl mx-auto'>
         <div className='flex justify-center items-center mb-8'>
           <Globe className='w-12 h-12 text-blue-600 mr-2' />
           <h1 className='text-3xl font-bold text-blue-600'>Whois</h1>
         </div>
 
-        <div className='flex gap-2'>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            router.push(domain)
+          }}
+          className='flex gap-2'
+        >
           <div className='relative flex-1'>
             <input
               type='text'
@@ -28,13 +34,12 @@ export default function Header() {
             <Globe className='absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400' />
           </div>
           <button
-            onClick={() => router.push(domain)}
             type='submit'
             className='px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 flex items-center justify-center'
           >
             <Search className='w-5' />
           </button>
-        </div>
+        </form>
       </div>
     </div>
   )
