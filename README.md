@@ -1,2 +1,3 @@
-# whois
-The next generation Whois service.
+# Whois
+
+The Next Generation Whois client for Web.
